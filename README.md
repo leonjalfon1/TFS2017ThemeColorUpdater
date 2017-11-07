@@ -1,5 +1,5 @@
 # TFS 2017 Theme Color Updater
-Powershell script to change the theme color of TFS 2017 (useful and recommended only for test servers!)
+Powershell script to change the theme color of TFS 2017 (useful and recommended only for test servers)
 
 # General Description
 The repository contain two scripts: 
