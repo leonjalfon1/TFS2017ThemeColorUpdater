@@ -1,10 +1,36 @@
 ﻿param
 (
     $TfsPath="C:\Program Files\Microsoft Team Foundation Server 15.0",
-    $AppThemesPath="C:\Program Files\Microsoft Team Foundation Server 15.0\Application Tier\Web Services\_static\tfs\Dev15.M125.1\App_Themes"
+    $AppThemesPath="auto"
 )
 
 #=================================================== FUNCTIONS ===================================================
+
+
+function Set-AppThemesPathParameter
+{
+    $MatchFolders = Get-ChildItem "$TfsPath\Application Tier\Web Services\_static\tfs" -Filter Dev15.*
+
+    if($MatchFolders -eq $null)
+    {
+        Write-Host "Error, Any file with the pattern 'Dev15*' was found under $TfsPath\Application Tier\Web Services\_static\tfs}"
+        Write-Host "AppThemesPath parameter can be automatically set" -ForegroundColor Red
+        Exit
+    }
+    elseif($MatchFolders.GetType().Name -eq "Object[]")
+    {
+        Write-Host "Error, Several files with the pattern 'Dev15*' were found under {$TfsPath\Application Tier\Web Services\_static\tfs}" -ForegroundColor Red
+        Write-Host "AppThemesPath parameter can be automatically set" -ForegroundColor Red
+        Exit
+    }
+    else
+    {
+        $DevFolder=$MatchFolders.Name
+        $AppThemesPath="$TfsPath\Application Tier\Web Services\_static\tfs\$DevFolder\App_Themes"
+        Write-Host "AppThemesPath [$AppThemesPath]"
+        return $AppThemesPath
+    }
+}
 
 
 function Restore-AppThemesFolder
@@ -83,6 +109,12 @@ function Start-TFS
 
 
 #====================================================== INIT =====================================================
+
+
+if($AppThemesPath -eq "auto")
+{
+    $AppThemesPath = Set-AppThemesPathParameter
+}
 
 
 if(-not (Test-Path "$AppThemesPath-Backup"))

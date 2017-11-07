@@ -3,7 +3,7 @@
     $CurrentPrimaryColor="#0078d7",
     $CurrentSecondaryColor="#106ebe",
     $CurrentThirdColor="#005a9e",
-    $NewPrimaryColor="#ff0000",
+    $NewPrimaryColor="#e60000",
     $NewSecondaryColor="#cc0000",
     $NewThirdColor="#b30000",
     $TfsPath="C:\Program Files\Microsoft Team Foundation Server 15.0",
