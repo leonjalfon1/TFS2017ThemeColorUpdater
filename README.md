@@ -19,7 +19,7 @@ This script perform the following steps:
 2.	Restart the TFS server in order to apply the changes
 
 # Using
-- Both scripts must be executed directly in the application server with administrator privileges  
+- The scripts must be executed directly in the application tier with administrator privileges  
 - All the parameters are optional and receive default values
 
 ## Tfs2017ThemeColorUpdater.ps1
