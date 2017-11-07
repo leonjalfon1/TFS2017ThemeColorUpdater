@@ -55,8 +55,10 @@ This script perform the following steps:
 - Default: "C:\Program Files\Microsoft Team Foundation Server 15.0"
 
 ##### AppThemesPath 
-- Path of the App_Themes folder (useful for non default TFS installations)
-- Default: "C:\Program Files\Microsoft Team Foundation Server 15.0\Application Tier\Web Services\_static\tfs\Dev15.M125.1\App_Themes"
+- Path of the App_Themes folder
+- This folder path changes in each TFS version, use "auto" to find the path automatically
+- Default: "auto"
+- Example: "C:\Program Files\Microsoft Team Foundation Server 15.0\Application Tier\Web Services\_static\tfs\Dev15.M125.1\App_Themes"
 
 ### Example:
 ```
@@ -72,8 +74,10 @@ This script perform the following steps:
 - Default: "C:\Program Files\Microsoft Team Foundation Server 15.0"
 
 ##### AppThemesPath 
-- Path of the App_Themes folder (useful for non default TFS installations)
-- Default: "C:\Program Files\Microsoft Team Foundation Server 15.0\Application Tier\Web Services\_static\tfs\Dev15.M125.1\App_Themes"
+- Path of the App_Themes folder
+- This folder path changes in each TFS version, use "auto" to find the path automatically
+- Default: "auto"
+- Example: "C:\Program Files\Microsoft Team Foundation Server 15.0\Application Tier\Web Services\_static\tfs\Dev15.M125.1\App_Themes"
 
 ### Example:
 ```
