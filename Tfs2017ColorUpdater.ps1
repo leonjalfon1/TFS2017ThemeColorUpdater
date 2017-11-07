@@ -1,24 +1,45 @@
-﻿
-#=================================================== PARAMETER ===================================================
-
-$AppThemesDefaultPath="C:\Program Files\Microsoft Team Foundation Server 15.0\Application Tier\Web Services\_static\tfs\Dev15.M125.1\App_Themes"
+﻿param
+(
+    $CurrentWelcomeColor="#106ebe",
+    $CurrentPrimaryColor="#0078d7",
+    $CurrentSecondaryColor="#005a9e",
+    $NewWelcomeColor="#D7000C",
+    $NewPrimaryColor="#D7000C",
+    $NewSecondaryColor="#AC000A",
+    $TfsPath="C:\Program Files\Microsoft Team Foundation Server 15.0",
+    $AppThemesPath="C:\Program Files\Microsoft Team Foundation Server 15.0\Application Tier\Web Services\_static\tfs\Dev15.M125.1\App_Themes"
+)
 
 #=================================================== FUNCTIONS ===================================================
 
 
+function Create-AppThemesBackup
+{
+    Write-Host "Creating a Backup..."
+
+    if(-not(Test-Path "$AppThemesPath-Backup")){ Copy-Item -Path $AppThemesPath -Recurse -Destination "$AppThemesPath-Backup" } 
+    else { Write-Host "Backup already exist" -ForegroundColor Gray} 
+
+    Write-Host "" 
+    Write-Host "Backup successfully created!" -ForegroundColor Yellow
+}
+
+
 function Update-CssFiles
 {
+    Write-Host ""
+    Write-Host "" 
     Write-Host "Updating css files..."
 
-    $CssFiles = Get-ChildItem -Recurse -Path $AppThemesDefaultPath | Where-Object { $_.Extension -eq ".css"}
+    $CssFiles = Get-ChildItem -Recurse -Path $AppThemesPath | Where-Object { $_.Extension -eq ".css"}
 
     foreach($file in $CssFiles)
     {
         $FilePath = $file.FullName
         Write-Host "Updating File {$FilePath}..." -ForegroundColor Gray
-        (Get-Content $FilePath) -replace "#0078d7","#D7000C" | out-file $FilePath
-        (Get-Content $FilePath) -replace "#005a9e","#AC000A" | out-file $FilePath
-        (Get-Content $FilePath) -replace "#106ebe","#D7000C" | out-file $FilePath
+        (Get-Content $FilePath) -replace $CurrentPrimaryColor,$NewPrimaryColor | out-file $FilePath
+        (Get-Content $FilePath) -replace $CurrentSecondaryColor,$NewSecondaryColor | out-file $FilePath
+        (Get-Content $FilePath) -replace $CurrentWelcomeColor,$NewWelcomeColor | out-file $FilePath
     }
 
     Write-Host "" 
@@ -36,7 +57,7 @@ function Stop-TFS
 
     # Setup the Process startup info
     $pinfo = New-Object System.Diagnostics.ProcessStartInfo
-    $pinfo.FileName = "C:\Program Files\Microsoft Team Foundation Server 15.0\Tools\TfsServiceControl.exe"
+    $pinfo.FileName = "$TfsPath\Tools\TfsServiceControl.exe"
     $pinfo.Arguments = "quiesce"
     $pinfo.UseShellExecute = $false
     $pinfo.CreateNoWindow = $true
@@ -67,7 +88,7 @@ function Start-TFS
 
     # Setup the Process startup info
     $pinfo = New-Object System.Diagnostics.ProcessStartInfo
-    $pinfo.FileName = "C:\Program Files\Microsoft Team Foundation Server 15.0\Tools\TfsServiceControl.exe"
+    $pinfo.FileName = "$TfsPath\Tools\TfsServiceControl.exe"
     $pinfo.Arguments = "unquiesce"
     $pinfo.UseShellExecute = $false
     $pinfo.CreateNoWindow = $true
@@ -92,12 +113,13 @@ function Start-TFS
 #====================================================== INIT =====================================================
 
 
-if(-not (Test-Path $AppThemesDefaultPath))
+if(-not (Test-Path $AppThemesPath))
 {
-    Write-Host "Error, Folder {$AppThemesDefaultPath} not found" -ForegroundColor Red
+    Write-Host "Error, Folder {$AppThemesPath} not found" -ForegroundColor Red
 }
 else
 {
+    Create-AppThemesBackup
     Update-CssFiles
     Stop-TFS
     Start-TFS
