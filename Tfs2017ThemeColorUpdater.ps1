@@ -33,6 +33,7 @@ function Set-AppThemesPathParameter
     {
         $DevFolder=$MatchFolders.Name
         $AppThemesPath="$TfsPath\Application Tier\Web Services\_static\tfs\$DevFolder\App_Themes"
+        Write-Host "AppThemesPath [$AppThemesPath]"
         return $AppThemesPath
     }
 }
