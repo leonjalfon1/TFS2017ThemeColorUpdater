@@ -1,6 +1,9 @@
 # TFS 2017 Theme Color Updater
 Powershell script to change the theme color of TFS 2017 (useful and recommended only for test servers)
 
+![Welcome-Page](https://github.com/leonjalfon1/TFS2017ThemeColorUpdater/blob/master/Images/Welcome.png?raw=true)
+![Main-Page](https://github.com/leonjalfon1/TFS2017ThemeColorUpdater/blob/master/Images/Main.png?raw=true)
+
 # General Description
 The repository contain two scripts: 
 - Tfs2017ThemeColorUpdater.ps1 - Update the current TFS theme colors
@@ -26,29 +29,29 @@ This script perform the following steps:
 
 ### Parameters
 
-##### CurrentWelcomeColor 
-- Current color of the welcome page 
-- Default: #106ebe
-
 ##### CurrentPrimaryColor 
-- Current color of the header primary color 
+- Current color of the theme primary color 
 - Default: #0078d7
 
 ##### CurrentSecondaryColor 
-- Current color of the header secondary color 
+- Current color of the theme secondary color 
+- Default: #106ebe
+
+##### CurrentThirdColor 
+- Current color of the theme third color  
 - Default: #005a9e
 
-##### NewWelcomeColor 
-- New color for the welcome page 
-- Default: #D7000C
-
 ##### NewPrimaryColor 
-- New color for the header primary color 
-- Default: #D7000C
+- New color for the theme primary color 
+- Default: #e60000
 
 ##### NewSecondaryColor 
-- New color for the header secondary color 
-- Default: #AC000A
+- New color for the theme secondary color 
+- Default: #cc0000
+
+##### NewThirdColor 
+- New color for the theme third color 
+- Default: #b30000
 
 ##### TfsPath 
 - Team Foundation Server path (useful for non default TFS installations)
@@ -62,7 +65,7 @@ This script perform the following steps:
 
 ### Example:
 ```
-.\Tfs2017ThemeColorUpdater.ps1 -NewWelcomeColor "#D7000C" -NewPrimaryColor "#D7000C" -NewSecondaryColor "#AC000A"
+.\Tfs2017ThemeColorUpdater.ps1 -NewPrimaryColor "#D7000C" -NewSecondaryColor "#AC000A" -NewThirdColor "#D7000C" 
 ```
 
 ## Tfs2017ThemeColorRestore.ps1
