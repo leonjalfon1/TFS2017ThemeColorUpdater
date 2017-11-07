@@ -1,11 +1,5 @@
 ﻿param
 (
-    $CurrentWelcomeColor="#106ebe",
-    $CurrentPrimaryColor="#0078d7",
-    $CurrentSecondaryColor="#005a9e",
-    $NewWelcomeColor="#D7000C",
-    $NewPrimaryColor="#D7000C",
-    $NewSecondaryColor="#AC000A",
     $TfsPath="C:\Program Files\Microsoft Team Foundation Server 15.0",
     $AppThemesPath="C:\Program Files\Microsoft Team Foundation Server 15.0\Application Tier\Web Services\_static\tfs\Dev15.M125.1\App_Themes"
 )
