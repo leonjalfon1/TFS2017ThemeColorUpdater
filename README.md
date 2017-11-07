@@ -14,7 +14,7 @@ This script perform the following steps:
 1.	Create a backup for the current theme (run only once - to backup the default theme)
 2.	Update the ccs files (replace the current colors with the specified colors in all the css files)
 3.	Restart the TFS server in order to apply the changes
-Note: If you delete the backup folder, you will not be able to restore the default values
+4.	Note: If you delete the backup folder, you will not be able to restore the default values
 
 ## Tfs2017ThemeColorRestore.ps1
 This script perform the following steps: 
