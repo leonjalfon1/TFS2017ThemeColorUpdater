@@ -24,20 +24,56 @@ This script perform the following steps:
 
 ### Tfs2017ThemeColorUpdater.ps1
 
-Parameters
+#### Parameters
 
-- CurrentWelcomeColor: Current color of the welcome page (default: #106ebe)
-- CurrentPrimaryColor: Current color of the header primary color (default: #0078d7)
-- CurrentSecondaryColor: Current color of the header secondary color (default: #005a9e)
-- NewWelcomeColor: New color for the welcome page (default: #D7000C)
-- NewPrimaryColor: New color for the header primary color (default: #D7000C)
-- NewSecondaryColor: New color for the header secondary color (default: #AC000A)
-- TfsPath: Team Foundation Server path (default: "C:\Program Files\Microsoft Team Foundation Server 15.0")
-- AppThemesPath: Path of the App_Themes folder (default: "C:\Program Files\Microsoft Team Foundation Server 15.0\Application Tier\Web Services\_static\tfs\Dev15.M125.1\App_Themes")
+##### CurrentWelcomeColor 
+- Current color of the welcome page 
+- Default: #106ebe
+
+##### CurrentPrimaryColor 
+- Current color of the header primary color 
+- Default: #0078d7
+
+##### CurrentSecondaryColor 
+- Current color of the header secondary color 
+- Default: #005a9e
+
+##### NewWelcomeColor 
+- New color for the welcome page 
+- Default: #D7000C
+
+##### NewPrimaryColor 
+- New color for the header primary color 
+- Default: #D7000C
+
+##### NewSecondaryColor 
+- New color for the header secondary color 
+- Default: #AC000A
+
+##### TfsPath 
+- Team Foundation Server path (useful for non default TFS installations)
+- Default: "C:\Program Files\Microsoft Team Foundation Server 15.0"
+
+##### AppThemesPath 
+- Path of the App_Themes folder (useful for non default TFS installations)
+- Default: "C:\Program Files\Microsoft Team Foundation Server 15.0\Application Tier\Web Services\_static\tfs\Dev15.M125.1\App_Themes"
+
+#### Example:
+```
+.\Tfs2017ThemeColorUpdater.ps1 -NewWelcomeColor "#D7000C" -NewPrimaryColor "#D7000C" -NewSecondaryColor "#AC000A"
+```
 
 ### Tfs2017ThemeColorRestore.ps1
 
-Parameters
+#### Parameters
 
 - TfsPath: Team Foundation Server path (default: "C:\Program Files\Microsoft Team Foundation Server 15.0")
 - AppThemesPath: Path of the App_Themes folder (default: "C:\Program Files\Microsoft Team Foundation Server 15.0\Application Tier\Web Services\_static\tfs\Dev15.M125.1\App_Themes")
+
+#### Example:
+```
+.\Tfs2017ThemeColorRestore.ps1
+```
+
+# Contributing
+- Please feel free to contribute, suggest ideas or open issues
