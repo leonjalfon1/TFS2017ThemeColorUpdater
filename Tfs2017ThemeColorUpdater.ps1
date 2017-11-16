@@ -3,9 +3,13 @@
     $CurrentPrimaryColor="#0078d7",
     $CurrentSecondaryColor="#106ebe",
     $CurrentThirdColor="#005a9e",
+    $CurrentFourthColor="#015a9e",
+
     $NewPrimaryColor="#e60000",
     $NewSecondaryColor="#cc0000",
     $NewThirdColor="#b30000",
+    $NewFourthColor="#b30000",
+
     $TfsPath="C:\Program Files\Microsoft Team Foundation Server 15.0",
     $AppThemesPath="auto"
 )
@@ -65,7 +69,8 @@ function Update-CssFiles
         Write-Host "Updating File {$FilePath}..." -ForegroundColor Gray
         (Get-Content $FilePath) -replace $CurrentPrimaryColor,$NewPrimaryColor | out-file $FilePath
         (Get-Content $FilePath) -replace $CurrentSecondaryColor,$NewSecondaryColor | out-file $FilePath
-        (Get-Content $FilePath) -replace $CurrentWelcomeColor,$NewWelcomeColor | out-file $FilePath
+        (Get-Content $FilePath) -replace $CurrentThirdColor,$NewThirdColor | out-file $FilePath
+        (Get-Content $FilePath) -replace $CurrentFourthColor,$NewFourthColor | out-file $FilePath
     }
 
     Write-Host "" 
